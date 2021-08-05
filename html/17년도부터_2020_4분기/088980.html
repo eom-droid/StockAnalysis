@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<link href="../css/compeach.css?ver3" rel="stylesheet"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<!-- <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" name="viewport"> -->
+<script src="../js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="../js/comp_load.js?ver=1.1" type="text/javascript"></script>
+<script src="../js/lib/jquery.autocomplete.js" type="text/javascript"></script>
+<link href="../css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+<link href="/SVO2/img/CompanyGuide.ico" rel="SHORTCUT ICON"/>
+<script src="../js/autocomplete.js" type="text/javascript"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-74989022-16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74989022-16');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "41kg1vfej4");
+</script>
+<meta content="" name="author"/>
+<meta content="" name="description"/>
+<title>맥쿼리인프라(A088980) | 재무제표 | 기업정보 | Company Guide</title>
+<script>
+      ///SVO2/xml/Finance_IFRS/088980.xml
+        $(function(){
+            if ($('#stkGb').val() !='751' && $('#gv_stkGb').val() !='754'){
+                //$('#divData').show();
+                //탭클릭이벤트 
+				if ($('#ReportGB').val()=="B" || $('#ReportGB').val()=="A" ) {
+                    $('div#divReportGb > a').eq(1).addClass('ac');  
+                    $('div#divReportGb > a').eq(0).removeClass('ac');
+					$('#ReportGB').val("B");
+                }else{
+                    $('div#divReportGb > a').eq(1).removeClass('ac');   
+                    $('div#divReportGb > a').eq(0).addClass('ac'); 
+					$('#ReportGB').val("D");
+                }
+				
+				$('#sonkiYQ').val($.cookie('finance_cook_sonkiYQ'));
+				$('#daechaYQ').val($.cookie('finance_cook_daechaYQ'));
+				$('#cashYQ').val($.cookie('finance_cook_cashYQ'));
+				
+				if ($('#sonkiYQ').val() =="Q"){	
+					$('#btnSonik_Q').addClass("ac");
+					$('#btnSonikYQText').html("[분기]");
+					$("#sonikChart1").attr('src','/SVO2/chartImg/03_01/A088980_'+$('#ReportGB').val()+'_Q_03_01.png');
+					$("#sonikChart2").attr('src','/SVO2/chartImg/03_02/A088980_'+$('#ReportGB').val()+'_Q_03_02.png');
+					$("#divSonikQ").show();
+
+				}else{
+					$('#btnSonik_Y').addClass("ac");
+					$('#btnSonikYQText').html("[연간]");
+					$("#sonikChart1").attr('src','/SVO2/chartImg/03_01/A088980_'+$('#ReportGB').val()+'_D_03_01.png');
+					$("#sonikChart2").attr('src','/SVO2/chartImg/03_02/A088980_'+$('#ReportGB').val()+'_D_03_02.png');
+					$("#divSonikY").show();
+				}
+
+				if ($('#daechaYQ').val() =="Q"){	
+					$('#btnDaecha_Q').addClass("ac")
+					$('#btnDaechaYQText').html("[분기]");
+					$("#deachaChart1").attr('src','/SVO2/chartImg/03_03/A088980_'+$('#ReportGB').val()+'_Q_03_03.png');
+					$("#deachaChart2").attr('src','/SVO2/chartImg/03_04/A088980_'+$('#ReportGB').val()+'_Q_03_04.png');
+					$("#divDaechaQ").show();
+				}else{
+					$('#btnDaecha_Y').addClass("ac")
+					$('#btnDaechaYQText').html("[연간]");
+					$("#deachaChart1").attr('src','/SVO2/chartImg/03_03/A088980_'+$('#ReportGB').val()+'_D_03_03.png');
+					$("#deachaChart2").attr('src','/SVO2/chartImg/03_04/A088980_'+$('#ReportGB').val()+'_D_03_04.png');
+					$("#divDaechaY").show();
+				}
+
+				if ($('#cashYQ').val() =="Q"){
+					$('#btnCash_Q').addClass("ac");
+					$('#btnCashYQText').html("[분기]");
+					$('#cashChart1').attr('src', '/SVO2/chartImg/03_05/A088980_'+$('#ReportGB').val()+'_Q_03_05.png');
+					$('#cashChart2').attr('src', '/SVO2/chartImg/03_06/A088980_'+$('#ReportGB').val()+'_Q_03_06.png');
+					$("#divCashQ").show();
+				}else{
+					$('#btnCash_Y').addClass("ac");
+					$('#btnCashYQText').html("[연간]");
+					$('#cashChart1').attr('src', '/SVO2/chartImg/03_05/A088980_'+$('#ReportGB').val()+'_D_03_05.png');
+					$('#cashChart2').attr('src', '/SVO2/chartImg/03_06/A088980_'+$('#ReportGB').val()+'_D_03_06.png');
+					$("#divCashY").show();
+				}
+
+                /*if ($('#ReportGB').val()=="B" || $('#ReportGB').val()=="A" ) {
+                    $('div#divReportGb > a').eq(1).addClass('ac');  
+                    $('div#divReportGb > a').eq(0).removeClass('ac');
+                }else{
+                    $('div#divReportGb > a').eq(1).removeClass('ac');   
+                    $('div#divReportGb > a').eq(0).addClass('ac');  
+                }*/
+
+                //손익계산서 연간/분기 클릭
+				var btnSonikYQ_Vals = ["Y","Q"];
+                $('#btnSonikYQ a').click(function(){
+                    $(this).parent().find('a').removeClass('ac');
+                    $(this).addClass('ac');
+					var rowNum = $('a',$('#btnSonikYQ')).index(this);
+
+                    $('#sonkiYQ').val(btnSonikYQ_Vals[rowNum]);
+					$.cookie('finance_cook_sonkiYQ', $('#sonkiYQ').val());
+
+                    if ($('#sonkiYQ').val() == 'Y'){
+                        $('#divSonikY').show();
+                        $('#divSonikQ').hide();
+                        $('#sonikChart1').attr('src', '/SVO2/chartImg/03_01/A088980_'+$('#ReportGB').val()+'_D_03_01.png');
+                        $('#sonikChart2').attr('src', '/SVO2/chartImg/03_02/A088980_'+$('#ReportGB').val()+'_D_03_02.png');
+						$('#btnSonikYQText').html("[연간]");
+                    }else{
+                        $('#divSonikY').hide();
+                        $('#divSonikQ').show();
+                        $('#sonikChart1').attr('src', '/SVO2/chartImg/03_01/A088980_'+$('#ReportGB').val()+'_Q_03_01.png');
+                        $('#sonikChart2').attr('src', '/SVO2/chartImg/03_02/A088980_'+$('#ReportGB').val()+'_Q_03_02.png');
+						$('#btnSonikYQText').html("[분기]");
+                    }
+					return false;
+                });
+                //재무상태표 연간/분기 클릭
+				var btnDaechaYQ_Vals = ["Y","Q"];
+                $('#btnDaechaYQ a').click(function(){
+                    $(this).parent().find('a').removeClass('ac');
+                    $(this).addClass('ac');
+					var rowNum = $('a',$('#btnDaechaYQ')).index(this);
+
+                    $('#daechaYQ').val(btnDaechaYQ_Vals[rowNum]);
+					$.cookie('finance_cook_daechaYQ', $('#daechaYQ').val());
+                    if ($('#daechaYQ').val() == 'Y'){
+                        $('#divDaechaY').show();
+                        $('#divDaechaQ').hide();
+                        $('#deachaChart1').attr('src', '/SVO2/chartImg/03_03/A088980_'+$('#ReportGB').val()+'_D_03_03.png');
+                        $('#deachaChart2').attr('src', '/SVO2/chartImg/03_04/A088980_'+$('#ReportGB').val()+'_D_03_04.png');
+						$('#btnDaechaYQText').html("[연간]");
+                    }else{
+                        $('#divDaechaY').hide();
+                        $('#divDaechaQ').show();
+                        $('#deachaChart1').attr('src', '/SVO2/chartImg/03_03/A088980_'+$('#ReportGB').val()+'_Q_03_03.png');
+                        $('#deachaChart2').attr('src', '/SVO2/chartImg/03_04/A088980_'+$('#ReportGB').val()+'_Q_03_04.png');
+						$('#btnDaechaYQText').html("[분기]");
+                    }
+					return false;
+                });
+
+                //현금흐름표 연간/분기 클릭
+				var btnCashYQ_Vals = ["Y","Q"];
+                $('#btnCashYQ a').click(function(){
+                    $(this).parent().find('a').removeClass('ac');
+                    $(this).addClass('ac');
+					var rowNum = $('a',$('#btnCashYQ')).index(this);
+
+                    $('#cashYQ').val(btnCashYQ_Vals[rowNum]);
+					$.cookie('finance_cook_cashYQ', $('#cashYQ').val());
+                    if ($('#cashYQ').val() == 'Y'){
+                        $('#divCashY').show();
+                        $('#divCashQ').hide();
+                        $('#cashChart1').attr('src', '/SVO2/chartImg/03_05/A088980_'+$('#ReportGB').val()+'_D_03_05.png');
+                        $('#cashChart2').attr('src', '/SVO2/chartImg/03_06/A088980_'+$('#ReportGB').val()+'_D_03_06.png');
+						$('#btnCashYQText').html("[연간]");
+                    }else{
+                        $('#divCashY').hide();
+                        $('#divCashQ').show();
+                        $('#cashChart1').attr('src', '/SVO2/chartImg/03_05/A088980_'+$('#ReportGB').val()+'_Q_03_05.png');
+                        $('#cashChart2').attr('src', '/SVO2/chartImg/03_06/A088980_'+$('#ReportGB').val()+'_Q_03_06.png');
+						$('#btnCashYQText').html("[분기]");
+                    }
+					return false;
+                });
+
+
+				//차트감추기 클릭
+                $('.chartHide').click(function(){
+                    $('.chartHide').hide();
+					$('.chartShow').show();
+					$('.ul_col2_l').hide();
+					$('.ul_col2_r').hide();
+					return false;
+                });
+
+				//차트보이기 클릭
+                $('.chartShow').click(function(){
+                    $('.chartHide').show();
+					$('.chartShow').hide();
+					$('.ul_col2_l').show();
+					$('.ul_col2_r').show();
+					return false;
+                });
+
+
+            }
+        });
+    </script>
+</link></head>
+<body class="">
+<div id="skip_navi">
+<a href="#compBody" onclick="document.getElementById('compBody').tabIndex=-1;document.getElementById('compBody').focus();return false;">본문 바로가기</a>
+<a href="#compGnb" onclick="document.getElementById('compGnb').tabIndex=-1;document.getElementById('compGnb').focus();return false;">메뉴 바로가기</a>
+</div>
+<div class="fng_body asp_body">
+<div class="fng_wrap">
+<script language="javascript">
+                $(function() {
+                    
+                });
+            </script>
+<!-- GNB -->
+<div class="contwrap" id="compBody"><!-- 컨텐츠 페이지 구성은 섹션으로 구성됨  -->
+<!-- 공통기업개요 -->
+<!-- 공통기업개요 -->
+<input id="strMarket" type="hidden" value="KSE"/>
+<div class="section ul_corpinfo">
+<div class="corp_group1">
+<h1 id="giName">맥쿼리인프라</h1>
+<h2>088980</h2>
+<span class="etc1">|</span>
+<!--
+					<h3>MKIF</h3>
+					<span class="etc1">&#124;</span>
+					-->
+<a class="btn_shome" href="javascript:goHompage('')" id="btn_shome"><span>홈페이지</span></a>
+<dl id="dl_btn_shome" style="display:none;"><dt>홈페이지</dt><dd id="dd_btn_shome"></dd></dl>
+<a class="btn_sphone" href="javascript:void(0)" id="btn_sphone"><span>전화번호</span></a>
+<dl id="dl_btn_sphone" style="display:none;"><dt>전화번호</dt><dd id="dd_btn_sphone">02-3705-8565 | IR 담당자 </dd></dl>
+<a class="btn_spmap" href="javascript:void(0)" id="btn_spmap"><span>주소</span></a>
+<dl id="dl_btn_spmap" style="display:none;"><dt>주소</dt><dd id="dd_btn_spmap">서울특별시 종로구 우정국로 26 A동 18층(공평동, 센트로폴리스)</dd></dl>
+<p class="stxt_group">
+<span class="stxt stxt1">KSE  코스피 금융업</span>
+<span id="strMarketTxt" style="display:none">코스피 금융업</span>
+<span class="etc2">|</span>
+<span class="stxt stxt2">FICS  운송인프라</span>
+<span class="etc2">|</span>
+<span class="stxt stxt3">12월 결산</span>
+</p>
+</div>
+<div class="corp_group2" id="corp_group2">
+<dl>
+<dt>
+<dl style="display:none;"><dt>PER(Price Earning Ratio)</dt><dd>전일자 보통주 수정주가 / 최근 결산 EPS(주당순이익) <br/>* EPS = 당기순이익 / 수정평균발행주식수<br/>* 최근결산은 2019/12 (연간) 기준임.</dd></dl>
+<a class="tip_in" href="javascript:void(0)" id="h_per">PER</a>
+</dt>
+<dd>-</dd>
+</dl>
+<dl>
+<dt>
+<dl style="display:none;"><dt>12M PER</dt><dd>전일자 보통주 수정주가 / 12개월 Forward EPS</dd></dl>
+<a class="tip_in" href="javascript:void(0)" id="h_12m">12M PER</a>
+</dt>
+<dd>-</dd>
+</dl>
+<dl>
+<dt>
+<dl style="display:none;"><dt>업종 PER</dt><dd>시장대표업종||SUM(구성종목 시가총액)/SUM(구성종목 당기순이익)<br/>* 전일자 보통주 시가총액 기준<br/>* 당기순이익은  최근결산 2019/12 (연간) 기준임.</dd></dl>
+<a class="tip_in" href="javascript:void(0)" id="h_u_per"><span class="ko">업종</span> PER</a>
+</dt>
+<dd>7.42</dd>
+</dl>
+<dl>
+<dt>
+<dl style="display:none;"><dt>PBR(Price Book-value Ratio)</dt><dd>전일자 보통주 수정주가 / 최근 결산기 BPS(주당순자산) <br/>* BPS=(지배주주지분-자기주식) / 무상조정기말주식수(우선주 및 자사주 포함) <br/>* 최근결산은 2019/12 (연간) 기준임.</dd></dl>
+<a class="tip_in" href="javascript:void(0)" id="h_pbr">PBR</a>
+</dt>
+<dd>-</dd>
+</dl>
+<dl>
+<dt>
+<dl style="display:none;"><dt>배당수익률</dt><dd>{최근 결산기 보통주 DPS(현금, 무상조정) / 전일자 보통주 수정주가} *100<br/>* 최근결산은 2019/12 (연간) 기준임.</dd></dl>
+<a class="tip_in" href="javascript:void(0)" id="h_rate"><span class="ko">배당수익률</span></a>
+</dt>
+<dd>-</dd>
+</dl>
+</div>
+</div>
+<div class="section ul_de">
+<!-- 데이터 없음 -->
+<div class="ul_wrap" id="divNotData">
+<div class="um_notdata">
+                            투자회사 종목은 금융감독원 전자공시시스템에 사업보고서를 공시하지 않기에, 재무제표 정보를 제공하지 않습니다.
+                        </div>
+</div>
+<div class="um_comment">
+<a class="comment_wrap btn_cm cmhidden" href="javascript:void(0)" onclick="cmView(this)">
+<ul>
+<li>* 재무제표는 요약정보를 수록하고 있습니다.</li>
+<li>* 자산총액 2조원 미만의 기업은 2013년까지 분기 및 반기 연결재무제표 의무 공시가 유예되므로, 해당 기업의 연결 기준 Net Quarter의 항목은 비어있는 것이 정상입니다. 
+(단, 재무상태표의 경우 4분기 Net Quarter는 공시되는 Annual과 동일함)</li>
+</ul>
+<span class="cmtext"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="bootomwrap">
+<div class="ul_bottom">
+<div class="ul_bottomwrap">
+<a class="link_txt" href="http://www.fnguide.com" target="_blank"><span>fnguide.com</span></a>
+<div class="txtbox">
+<p class="txt">FnGuide에서 제공하는 정보는 신뢰할 만한 자료 및 정보로부터 얻어진 것이나 그 정확성이나 완전성을 보장 할 수 없으며, 시간이 경과함에 따라 변경될 수 있습니다. 따라서 정보의 오류, 누락에 대하여 FnGuide 또는FnGuide에 자료를 제공하는 회사에서는 그 결과에 대해 법적인 책임을 지지 않습니다. 모든 콘텐츠에 대한 저작권은 FnGuide에 있으며 사전 허가없이 이를 무단으로 사용하거나, 데이터 베이스화 할 경우 민형사상 책임을 물을 수 있습니다.</p>
+</div>
+<p class="waimg"><span>웹 접근성 우수사이트 인증마크(WA인증마크)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input id="ddd" name="ddd" type="hidden" value="088980"/>
+<input id="ReportGB" name="ReportGB" type="hidden" value="B"/>
+<input name="stkGb" type="hidden" value="754"/>
+<input id="sonkiYQ" name="sonkiYQ" type="hidden" value=""/>
+<input id="daechaYQ" name="daechaYQ" type="hidden" value=""/>
+<input id="cashYQ" name="cashYQ" type="hidden" value=""/>
+</body>
+</html>
